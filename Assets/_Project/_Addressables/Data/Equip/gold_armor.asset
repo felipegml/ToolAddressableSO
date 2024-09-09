@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: gold_armor
   m_EditorClassIdentifier: 
   equipName: Gold Armor
-  equipID: 
+  equipID: armor_004
   icon: {fileID: 0}
-  moneyValue: 0
+  moneyValue: 1000

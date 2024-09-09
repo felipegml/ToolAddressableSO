@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -8,12 +9,13 @@ public class DataCreator : EditorWindow
     #region VARIABLES
 
     //Public Variables
-    private Object cvsFile;
+    private UnityEngine.Object scriptSO;
+    private UnityEngine.Object cvsFile;
     public string dbPath = "Assets/_Project/_Addressables/Data/Equip";
     private int dataCreated = 0;
 
     //Private
-    private string nameLabel;
+    public string nameLabel;
 
     #endregion
 
@@ -55,9 +57,13 @@ public class DataCreator : EditorWindow
         dbPath = EditorGUILayout.TextField(dbPath);
         EditorGUILayout.Space(10);
 
+        GUILayout.Label(string.Format("SO {0} script", nameLabel));
+        EditorGUILayout.Space(5);
+        scriptSO = EditorGUILayout.ObjectField(scriptSO, typeof(UnityEngine.Object), true);
+
         GUILayout.Label(string.Format("CSV {0} file", nameLabel));
         EditorGUILayout.Space(5);
-        cvsFile = EditorGUILayout.ObjectField(cvsFile, typeof(Object), true);
+        cvsFile = EditorGUILayout.ObjectField(cvsFile, typeof(UnityEngine.Object), true);
 
         EditorGUILayout.Space(10);
         if (GUILayout.Button("CREATE DATA SO"))
@@ -65,8 +71,13 @@ public class DataCreator : EditorWindow
             string _path = AssetDatabase.GetAssetPath(cvsFile);
             if (Path.GetExtension(_path) == ".csv")
             {
-                ClearSOFiles();
-                CreateSOFiles(_path);
+                if(scriptSO != null)
+                {
+                    ClearSOFiles();
+                    CreateSOFiles(_path);
+                }
+                else
+                    Debug.Log("SO class not defined");
             }
             else
                 Debug.Log("Select a .csv file");
@@ -117,6 +128,8 @@ public class DataCreator : EditorWindow
         {
             using (StreamReader reader = new StreamReader(_path))
             {
+                string[] _parameters = reader.ReadLine().Split(',');
+
                 while (!reader.EndOfStream)
                 {
                     string _line = reader.ReadLine();
@@ -126,7 +139,7 @@ public class DataCreator : EditorWindow
                     if (_lines > 1)
                     {
                         //Debug.Log(_line + " " + _lines);
-                        CreateSOFile(_collumns);
+                        CreateSOFile(_parameters, _collumns);
                         dataCreated++;
                     }
                 }
@@ -142,12 +155,29 @@ public class DataCreator : EditorWindow
         }
     }
 
-    public virtual void CreateSOFile(string[] _collumns)
+    public virtual void CreateSOFile(string[] _parameters, string[] _collumns)
     {
+        string _fileName = _collumns[0].Replace(' ', '_').ToLower();
+        var _so = ScriptableObject.CreateInstance(((MonoScript)scriptSO).GetClass());
 
+        for (int i = 0; i < _collumns.Length; i++)
+        {
+            try
+            {
+                string _parameter = _parameters[i];
+                Type _type = _so.GetType().GetField(_parameter).FieldType;
+                _so.GetType().GetField(_parameter).SetValue(_so, Convert.ChangeType(_collumns[i], _type));
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.Message);
+            }
+        }
+
+        SaveSOFile((UnityEngine.Object)_so, _fileName);
     }
 
-    public virtual void SaveSOFile(Object _obj, string _fileName)
+    public virtual void SaveSOFile(UnityEngine.Object _obj, string _fileName)
     {
         string _equipSOPath = Path.Combine(dbPath, string.Format("{0}.asset", _fileName));
         AssetDatabase.CreateAsset(_obj, _equipSOPath);
@@ -160,6 +190,5 @@ public class DataCreator : EditorWindow
     }
 
     #endregion
-
 }
 #endif

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: silver_armor
   m_EditorClassIdentifier: 
   equipName: Silver Armor
-  equipID: 
+  equipID: armor_003
   icon: {fileID: 0}
-  moneyValue: 0
+  moneyValue: 500
