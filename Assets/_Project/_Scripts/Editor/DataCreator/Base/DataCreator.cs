@@ -12,6 +12,7 @@ public class DataCreator : EditorWindow
     private UnityEngine.Object scriptSO;
     private UnityEngine.Object cvsFile;
     public string dbPath = "Assets/_Project/_Addressables/Data/Equip";
+    public string dbIconsPath = "Assets/_Project/_Addressables/Sprites/Equip";
     private int dataCreated = 0;
 
     //Private
@@ -40,6 +41,7 @@ public class DataCreator : EditorWindow
     {
         SetSize();
         SetupDataAddressablesGUI();
+        UpdateDataIconsGUI();
     }
 
     public virtual void SetSize()
@@ -59,11 +61,11 @@ public class DataCreator : EditorWindow
 
         GUILayout.Label(string.Format("SO {0} script", nameLabel));
         EditorGUILayout.Space(5);
-        scriptSO = EditorGUILayout.ObjectField(scriptSO, typeof(UnityEngine.Object), true);
+        scriptSO = EditorGUILayout.ObjectField(scriptSO, typeof(UnityEngine.Object), false);
 
         GUILayout.Label(string.Format("CSV {0} file", nameLabel));
         EditorGUILayout.Space(5);
-        cvsFile = EditorGUILayout.ObjectField(cvsFile, typeof(UnityEngine.Object), true);
+        cvsFile = EditorGUILayout.ObjectField(cvsFile, typeof(UnityEngine.Object), false);
 
         EditorGUILayout.Space(10);
         if (GUILayout.Button("CREATE DATA SO"))
@@ -91,18 +93,18 @@ public class DataCreator : EditorWindow
             RefreshAddressables();
     }
 
-    /*public virtual void SetupFoodIconsGUI()
+    public virtual void UpdateDataIconsGUI()
     {
-        GUILayout.Label("FOOD ICONS Path");
+        GUILayout.Label("UPDATE ICONS");
         EditorGUILayout.Space(5);
-        foodIconsPath = EditorGUILayout.TextField(foodIconsPath);
+        dbIconsPath = EditorGUILayout.TextField(dbIconsPath);
         EditorGUILayout.Space(5);
-        if (GUILayout.Button("REFRESH FOOD SO ICONS"))
-            UpdateFoodSOSprites();
+        if (GUILayout.Button("UPDATE"))
+            UpdateDataIconsSO();
 
-        EditorGUILayout.Space(10);
-        GUILayout.Label(string.Format("Total icons updateds: {0}/{1}", foodIcons_founds, foodIcons_notfounds));
-    }*/
+        //EditorGUILayout.Space(10);
+        //GUILayout.Label(string.Format("Total icons updateds: {0}/{1}", foodIcons_founds, foodIcons_notfounds));
+    }
 
     #endregion
 
@@ -147,6 +149,7 @@ public class DataCreator : EditorWindow
                 AssetDatabase.Refresh();
             }
 
+            UpdateDataIconsSO();
             Repaint();
         }
         catch (IOException e)
@@ -182,6 +185,11 @@ public class DataCreator : EditorWindow
         string _equipSOPath = Path.Combine(dbPath, string.Format("{0}.asset", _fileName));
         AssetDatabase.CreateAsset(_obj, _equipSOPath);
         AssetDatabase.SaveAssets();
+    }
+
+    public virtual void UpdateDataIconsSO()
+    {
+
     }
 
     public void RefreshAddressables()

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389ceafc95a5bea40a5139e21e3506a7, type: 3}
-  m_Name: bronze_armor
+  m_Name: boots
   m_EditorClassIdentifier: 
-  equipName: Bronze Armor
-  equipID: armor_002
+  equipName: boots
+  equipID: equip_002
   icon: {fileID: 0}
-  moneyValue: 200
+  moneyValue: 50

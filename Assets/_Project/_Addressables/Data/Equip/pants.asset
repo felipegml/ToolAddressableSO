@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389ceafc95a5bea40a5139e21e3506a7, type: 3}
-  m_Name: platinum_armor
+  m_Name: pants
   m_EditorClassIdentifier: 
-  equipName: Platinum Armor
-  equipID: armor_005
+  equipName: pants
+  equipID: equip_005
   icon: {fileID: 0}
-  moneyValue: 5000
+  moneyValue: 80
