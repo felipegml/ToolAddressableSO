@@ -40,7 +40,7 @@ public class EquipDataCreator : DataCreator
             string _iconPath = Path.Combine(dbIconsPath, _iconName + ".png");
             if (File.Exists(_iconPath))
             {
-                Debug.Log("<color=green>" + _equipSO.name + " " + _iconPath + " FOUND</color>");
+                Debug.Log("<color=green>" + _equipSO.equipID + " " + _iconPath + " FOUND</color>");
                 _equipSO.icon = (Sprite)AssetDatabase.LoadAssetAtPath(_iconPath, typeof(Sprite));
             }
             else

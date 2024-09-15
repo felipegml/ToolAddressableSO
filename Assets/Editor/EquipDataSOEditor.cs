@@ -18,6 +18,6 @@ public class EquipDataSOEditor : Editor
 
         GUILayout.Label(string.Format("Equip Icon"));
         _dataSO.icon = EditorGUILayout.ObjectField(_dataSO.icon, typeof(Sprite), false,
-        GUILayout.Height(64), GUILayout.Width(64)) as Sprite;
+        GUILayout.Height(128), GUILayout.Width(128)) as Sprite;
     }
 }

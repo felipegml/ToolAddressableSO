@@ -1,7 +1,7 @@
-equipName,equipID,moneyValue
-armor,equip_001,200
-boots,equip_002,50
-gloves,equip_003,40
-helmets,equip_004,100
-pants,equip_005,80
-shoulders,equip_006,70
+equipID,equipName,moneyValue
+equip_001,armor,200
+equip_002,boots,50
+equip_003,gloves,40
+equip_004,helmets,100
+equip_005,pants,80
+equip_006,shoulders,70

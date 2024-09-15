@@ -138,7 +138,7 @@ public class DataCreator : EditorWindow
                     _lines++;
                     string[] _collumns = _line.Split(',');
 
-                    if (_lines > 1)
+                    if (_lines > 0)
                     {
                         //Debug.Log(_line + " " + _lines);
                         CreateSOFile(_parameters, _collumns);

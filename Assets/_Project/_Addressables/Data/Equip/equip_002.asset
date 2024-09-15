@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389ceafc95a5bea40a5139e21e3506a7, type: 3}
-  m_Name: pants
+  m_Name: equip_002
   m_EditorClassIdentifier: 
-  equipName: pants
-  equipID: equip_005
+  equipName: boots
+  equipID: equip_002
   icon: {fileID: 0}
-  moneyValue: 80
+  moneyValue: 50
