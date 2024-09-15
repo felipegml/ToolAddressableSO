@@ -1,7 +1,7 @@
-equipID,equipName,moneyValue
-equip_001,armor,200
-equip_002,boots,50
-equip_003,gloves,40
-equip_004,helmets,100
-equip_005,pants,80
-equip_006,shoulders,70
+equipID,equipName,moneyValue,inGame,equipRarity
+equip_001,armor,200,TRUE,common
+equip_002,boots,50,TRUE,common
+equip_003,gloves,40,TRUE,common
+equip_004,helmets,100,TRUE,uncommon
+equip_005,pants,80,TRUE,uncommon
+equip_006,shoulders,70,FALSE,rare

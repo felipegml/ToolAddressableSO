@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipName: helmets
   equipID: equip_004
-  icon: {fileID: 0}
   moneyValue: 100
+  inGame: 1
+  equipRarity: 1
+  icon: {fileID: 0}

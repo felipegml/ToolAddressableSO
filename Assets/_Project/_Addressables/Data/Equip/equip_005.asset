@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipName: pants
   equipID: equip_005
-  icon: {fileID: 0}
   moneyValue: 80
+  inGame: 1
+  equipRarity: 1
+  icon: {fileID: 0}

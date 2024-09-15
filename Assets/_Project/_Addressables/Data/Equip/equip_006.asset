@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipName: shoulders
   equipID: equip_006
-  icon: {fileID: 0}
   moneyValue: 70
+  inGame: 0
+  equipRarity: 2
+  icon: {fileID: 0}

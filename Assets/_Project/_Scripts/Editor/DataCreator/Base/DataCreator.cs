@@ -183,6 +183,7 @@ public class DataCreator : EditorWindow
     /// <summary>
     /// [virtual] Create scriptableObejct file using first line of cvsFile comparing with the name of each variable from scriptobject script
     /// Added value based at the collumn with the variable propertie
+    /// This example works only with default parameters
     /// </summary>
     /// <param name="_parameters"></param>
     /// <param name="_collumns"></param>
@@ -201,11 +202,23 @@ public class DataCreator : EditorWindow
             }
             catch (Exception e)
             {
-                Debug.LogError(e.Message);
+                NotDefaultParameters(_so, _parameters[i], _collumns[i], e.Message);
             }
         }
 
         SaveSOFile((UnityEngine.Object)_so, _fileName);
+    }
+
+    /// <summary>
+    /// this in case of not default value or special variables
+    /// </summary>
+    /// <param name="_so"></param>
+    /// <param name="_parameter"></param>
+    /// <param name="_value"></param>
+    /// <param name="_error"></param>
+    public virtual void NotDefaultParameters(object _so, string _parameter, string _value, string _error = "")
+    {
+        Debug.LogError(_error);
     }
 
     /// <summary>

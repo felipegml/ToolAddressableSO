@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class EquipDataCreator : DataCreator
 
     #region FUNCTIONS
 
+    //This is a example where I use the scriptableObject name to get a image with the same name
+    //But can be use any kind of logic, example use a combination of 'name' + 'id', and more than one icon if it is necessary 
     public override void UpdateDataIconsSO()
     {
         Debug.Log("UpdateDataIconsSO");
@@ -46,6 +49,21 @@ public class EquipDataCreator : DataCreator
             {
                 Debug.Log("<color=red>" + _equipSO.name + " " + _iconPath + " NOT FOUND</color>");
             }
+        }
+    }
+
+    //Example using a enum value, so I get the exception from 'CreateSOFile' function, and get this information to try to convert string to enum
+    public override void NotDefaultParameters(object _so, string _parameter, string _value, string _error = "")
+    {
+        try
+        {
+            Type _type = _so.GetType().GetField(_parameter).FieldType;
+            if(_type == typeof(EquipDataSO.EquipRarity))
+                ((EquipDataSO)_so).equipRarity = (EquipDataSO.EquipRarity)System.Enum.Parse(typeof(EquipDataSO.EquipRarity), _value);
+        }
+        catch (Exception e)
+        {
+            base.NotDefaultParameters(_parameter, _value, e.Message);
         }
     }
 

@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipName: boots
   equipID: equip_002
-  icon: {fileID: 0}
   moneyValue: 50
+  inGame: 1
+  equipRarity: 0
+  icon: {fileID: 0}
