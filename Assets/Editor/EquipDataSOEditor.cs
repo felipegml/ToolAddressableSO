@@ -1,4 +1,3 @@
-using System.Xml;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ public class EquipDataSOEditor : Editor
     {
         base.OnInspectorGUI();
 
+        //Create a EditoGUILayout for sprite with a size of 128x128 and can change the sprite at this parameter
         GUILayout.Label(string.Format("Equip Icon"));
         _dataSO.icon = EditorGUILayout.ObjectField(_dataSO.icon, typeof(Sprite), false,
         GUILayout.Height(128), GUILayout.Width(128)) as Sprite;
