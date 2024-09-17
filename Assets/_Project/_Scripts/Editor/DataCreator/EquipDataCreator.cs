@@ -50,6 +50,9 @@ public class EquipDataCreator : DataCreator
                 Debug.Log("<color=red>" + _equipSO.name + " " + _iconPath + " NOT FOUND</color>");
             }
         }
+
+        //This part fix the bug of losing reference of icon at scriptableObject
+        AssetDatabase.ForceReserializeAssets();
     }
 
     //Example using a enum value, so I get the exception from 'CreateSOFile' function, and get this information to try to convert string to enum

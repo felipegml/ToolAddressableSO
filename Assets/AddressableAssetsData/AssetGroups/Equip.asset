@@ -16,7 +16,43 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: d8b4e85afcc8be44e8c623864a01006b
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 08217eabd75c09041b212427c537c11e
+    m_Address: equip_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00cca88c5b707974e829a26f8af46c0b
+    m_Address: equip_006
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54d402962ad9d364790e6834297ad416
+    m_Address: equip_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d81d6b72b0b3e38408f033d4a20b93fb
+    m_Address: equip_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5cbf608e50280d4893b422ae7abc885
+    m_Address: equip_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68443a5717581504f923c467bc50391f
+    m_Address: equip_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 08ef5571fd24bce4eb28e7db906ca183, type: 2}
   m_SchemaSet:
